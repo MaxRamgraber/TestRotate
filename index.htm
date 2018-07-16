@@ -1,25 +1,19 @@
-<!doctype HTML>
-<html>
+<script src=”https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+<script src=”https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
 
-<body style='margin : 0px; overflow: hidden;'>
-  <a-scene embedded arjs='trackingMethod: best;'>
-    <a-assets>
-      <img id='earth' src='https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg' />
-    </a-assets>
-
-    <a-anchor hit-testing-enabled='true'>
+<body style=’margin : 0px; overflow: hidden;’>
+  <a-scene embedded arjs=’sourceType: webcam;’>
+      <a-marker preset=’hiro’>
       <a-entity 
-        
             obj-model=”obj: url(https://maxramgraber.github.io/TestRotate/FAT_topography_lowres.obj); 
             mtl: url(https://maxramgraber.github.io/TestRotate/FAT_topography_lowres.mtl)”>
-        
-  
-
-    </a-anchor>
-    <a-camera-static/>
+      </a-entity>
+      </a-marker>
+  <a-entity camera>
+  </a-entity>
   </a-scene>
 </body>
-</html>
+
+  
+
