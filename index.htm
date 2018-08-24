@@ -8,20 +8,31 @@
   </head>
   <body>
 	  
-	<script type="text/javascript">
-		AFRAME.registerComponent("listener", {
-			schema : 
-			{
-				stepFactor : {
-					type : "number",
-					default : 0.01
-				}
-			},
-			tick : function()
-			{	this.el.components.camera.camera.parent.position.add(this.el.components.camera.camera.getWorldDirection().multiplyScalar(this.data.stepFactor));
-			}
-		});
-	</script>
+<script type="text/javascript">
+	AFRAME.registerComponent("listener", {
+	schema : 
+	{
+		stepFactor : {
+			type : "number",
+			default : 0.05
+		}
+	},
+	  init: function() {
+	    this.mousedown = false
+	    window.addEventListener("mouseup", (e)=> {
+	       this.mousedown = false
+	    })
+	    window.addEventListener("mousedown", (e)=> {
+	       this.mousedown = true
+	    })
+	  },
+	  tick: function() {
+	    if (this.mousedown) {
+	      document.querySelector("a-camera").components.camera.camera.parent.position.add(document.querySelector("a-camera").components.camera.camera.getWorldDirection().multiplyScalar(this.data.stepFactor));
+	    }
+	  }
+	})
+</script>
 	  
     <a-scene background="transparent: true">
 	    
